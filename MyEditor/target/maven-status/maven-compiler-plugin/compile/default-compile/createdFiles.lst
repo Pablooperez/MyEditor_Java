@@ -1,0 +1,5 @@
+module-info.class
+com\mycompany\myeditor\PrimaryController.class
+com\mycompany\myeditor\GestorArchivos.class
+com\mycompany\myeditor\Documento.class
+com\mycompany\myeditor\App.class

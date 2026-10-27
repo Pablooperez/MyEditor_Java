@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20.0" style="-fx-background-color: #0d1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml">
+   <children>
+      <!-- Cabecera -->
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #161b22; -fx-padding: 10 20 10 20; -fx-border-color: #30363d; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Button onAction="#mostrarInicio" style="-fx-background-color: transparent; -fx-text-fill: #8b949e; -fx-cursor: hand;" text="⬅ Volver a Inicio" />
+            <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 0 0 15;" text="⚙ Configuración del Editor" />
+         </children>
+      </HBox>
+
+      <!-- Opciones -->
+      <VBox spacing="25.0">
+         <padding>
+            <Insets bottom="30.0" left="40.0" right="40.0" top="20.0" />
+         </padding>
+         <children>
+            <!-- Tipografía -->
+            <VBox spacing="15.0" style="-fx-background-color: #161b22; -fx-border-color: #30363d; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20;">
+               <children>
+                  <Label style="-fx-text-fill: #58a6ff; -fx-font-size: 14px; -fx-font-weight: bold;" text="🔤 Tipografía y Fuente" />
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label style="-fx-text-fill: #8b949e; -fx-font-size: 14px;" text="Familia de Fuente" />
+                              <ComboBox fx:id="fontFamilySelector" onAction="#aplicarTipografia" prefWidth="180.0" style="-fx-background-color: #c9d1d9; -fx-border-color: #30363d; -fx-border-radius: 6; -fx-text-fill: white;" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label style="-fx-text-fill: #8b949e; -fx-font-size: 14px;" text="Tamaño de Fuente" />
+                              <ComboBox fx:id="fontSizeSelector" onAction="#aplicarTipografia" prefWidth="120.0" style="-fx-background-color: #c9d1d9; -fx-border-color: #30363d; -fx-border-radius: 6; -fx-text-fill: white;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <!-- Visualización -->
+            <VBox spacing="15.0" style="-fx-background-color: #161b22; -fx-border-color: #30363d; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20;">
+               <children>
+                  <Label style="-fx-text-fill: #58a6ff; -fx-font-size: 14px; -fx-font-weight: bold;" text="👁 Visualización" />
+                  <CheckBox fx:id="chkLineas" selected="true" style="-fx-text-fill: #c9d1d9; -fx-font-size: 13px;" text="Mostrar números de línea (Gutter)" />
+                  <CheckBox fx:id="chkAjusteLinea" style="-fx-text-fill: #c9d1d9; -fx-font-size: 13px;" text="Ajuste automático de línea (Word Wrap)" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

@@ -6,25 +6,48 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" style="-fx-background-color: #0d1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml">
+<VBox alignment="TOP_CENTER" style="-fx-background-color: #0b0e14;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml">
    <padding>
-      <Insets bottom="40.0" left="40.0" right="40.0" top="100" />
+      <Insets bottom="40.0" left="40.0" right="40.0" top="90.0" />
    </padding>
    <children>
-      <!-- Bloque contenedor centrado con ancho fijo -->
-      <VBox alignment="CENTER_LEFT" maxWidth="460.0" spacing="25.0">
+      <!-- Bloque centralizado -->
+      <VBox alignment="CENTER_LEFT" maxWidth="500.0" spacing="25.0">
          <children>
             <Label style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;" text="¡Hola de nuevo!" />
             
-            <!-- Botones principales -->
+            <!-- Tarjetas principales con iconos y subtítulos verticales -->
             <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button onAction="#nuevoDocumento" prefHeight="100.0" prefWidth="220.0" style="-fx-background-color: #161b22; -fx-border-color: #30363d; -fx-border-radius: 8; -fx-background-radius: 8; -fx-text-fill: white; -fx-alignment: BASELINE_LEFT; -fx-padding: 15; -fx-cursor: hand;" text="📄 Nuevo Documento" />
-                  <Button onAction="#abrirArchivo" prefHeight="100.0" prefWidth="220.0" style="-fx-background-color: #161b22; -fx-border-color: #30363d; -fx-border-radius: 8; -fx-background-radius: 8; -fx-text-fill: white; -fx-alignment: BASELINE_LEFT; -fx-padding: 15; -fx-cursor: hand;" text="📂 Abrir Archivo" />
+                  <!-- Tarjeta: Nuevo Documento -->
+                  <Button onAction="#nuevoDocumento" prefHeight="115.0" prefWidth="235.0" style="-fx-background-color: #141824; -fx-border-color: #22283a; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16; -fx-cursor: hand;">
+                     <graphic>
+                        <VBox alignment="CENTER_LEFT" spacing="6.0">
+                           <children>
+                              <Label style="-fx-text-fill: #3b82f6; -fx-font-size: 20px;" text="📄" />
+                              <Label style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;" text="Nuevo Documento" />
+                              <Label style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" text="Crear archivo en blanco" />
+                           </children>
+                        </VBox>
+                     </graphic>
+                  </Button>
+
+                  <!-- Tarjeta: Abrir Archivo -->
+                  <Button onAction="#abrirArchivo" prefHeight="115.0" prefWidth="235.0" style="-fx-background-color: #141824; -fx-border-color: #22283a; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 16; -fx-cursor: hand;">
+                     <graphic>
+                        <VBox alignment="CENTER_LEFT" spacing="6.0">
+                           <children>
+                              <Label style="-fx-text-fill: #10b981; -fx-font-size: 20px;" text="📂" />
+                              <Label style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;" text="Abrir Archivo" />
+                              <Label style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" text="Explorar archivos locales" />
+                           </children>
+                        </VBox>
+                     </graphic>
+                  </Button>
                </children>
             </HBox>
             
-            <!-- Sección de archivos recientes -->
+            <!-- Sección Recientes -->
             <VBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
                   <Label style="-fx-text-fill: #8b949e; -fx-font-size: 12px; -fx-font-weight: bold;" text="🕒 RECIENTES" />

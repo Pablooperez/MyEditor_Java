@@ -26,6 +26,8 @@ public class PrimaryController {
     @FXML private TextArea txtEditor;
     @FXML private TextArea txtLineas; 
     @FXML private Label lblTabName;
+    @FXML private Label lblStatusName;
+    @FXML private Label lblStatusState;
     @FXML private Label lblCursor;
 
     @FXML private ComboBox<String> fontFamilySelector;
@@ -36,15 +38,12 @@ public class PrimaryController {
     private String rutaArchivoActual = null;
     private boolean inicializado = false;
 
-    // Estilos CSS para los botones activo e inactivo
-    private final String ESTILO_ACTIVO = "-fx-background-color: #21262d; -fx-text-fill: white; -fx-alignment: BASELINE_LEFT; -fx-padding: 10; -fx-cursor: hand;";
-    private final String ESTILO_INACTIVO = "-fx-background-color: transparent; -fx-text-fill: #8b949e; -fx-alignment: BASELINE_LEFT; -fx-padding: 10; -fx-cursor: hand;";
+    private final String ESTILO_ACTIVO = "-fx-background-color: #1e2338; -fx-text-fill: #60a5fa; -fx-alignment: BASELINE_LEFT; -fx-padding: 10 14; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;";
+    private final String ESTILO_INACTIVO = "-fx-background-color: transparent; -fx-text-fill: #9ca3af; -fx-alignment: BASELINE_LEFT; -fx-padding: 10 14; -fx-background-radius: 6; -fx-cursor: hand;";
 
     @FXML
     public void initialize() {
-        if (inicializado) {
-            return;
-        }
+        if (inicializado) return;
         inicializado = true;
 
         try {
@@ -91,7 +90,11 @@ public class PrimaryController {
             if (txtLineas != null) txtLineas.setScrollTop(newVal.doubleValue());
         });
 
-        txtEditor.textProperty().addListener((obs, oldVal, newVal) -> actualizarLineasYCursor());
+        txtEditor.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (lblStatusState != null) lblStatusState.setText("Modificado");
+            actualizarLineasYCursor();
+        });
+        
         txtEditor.caretPositionProperty().addListener((obs, oldVal, newVal) -> actualizarLineasYCursor());
     }
 
@@ -102,8 +105,8 @@ public class PrimaryController {
         }
 
         if (fontSizeSelector != null && fontSizeSelector.getItems().isEmpty()) {
-            fontSizeSelector.getItems().addAll("12px", "14px", "16px", "18px", "20px", "24px");
-            fontSizeSelector.setValue("14px");
+            fontSizeSelector.getItems().addAll("12 px", "14 px (Por defecto)", "16 px", "18 px", "20 px", "24 px");
+            fontSizeSelector.setValue("14 px (Por defecto)");
         }
 
         if (chkLineas != null) {
@@ -154,6 +157,8 @@ public class PrimaryController {
         
         if (txtEditor != null) txtEditor.setText("");
         if (lblTabName != null) lblTabName.setText("sin_titulo.txt");
+        if (lblStatusName != null) lblStatusName.setText("sin_titulo.txt");
+        if (lblStatusState != null) lblStatusState.setText("Modificado");
         actualizarLineasYCursor();
     }
 
@@ -166,6 +171,8 @@ public class PrimaryController {
             rutaArchivoActual = doc.getRuta();
             if (txtEditor != null) txtEditor.setText(doc.getContenido());
             if (lblTabName != null) lblTabName.setText(doc.getNombre());
+            if (lblStatusName != null) lblStatusName.setText(doc.getNombre());
+            if (lblStatusState != null) lblStatusState.setText("Guardado");
             actualizarLineasYCursor();
         }
     }
@@ -178,19 +185,24 @@ public class PrimaryController {
         if (doc != null) {
             rutaArchivoActual = doc.getRuta();
             if (lblTabName != null) lblTabName.setText(doc.getNombre());
+            if (lblStatusName != null) lblStatusName.setText(doc.getNombre());
+            if (lblStatusState != null) lblStatusState.setText("Guardado");
         }
     }
 
     @FXML
     private void aplicarTipografia() {
         if (fontFamilySelector == null || fontSizeSelector == null || txtEditor == null || txtLineas == null) return;
-        
+    
         String fuente = fontFamilySelector.getValue();
-        String tamano = fontSizeSelector.getValue();
-        if (fuente != null && tamano != null) {
-            String fontStyle = "-fx-font-family: '" + fuente + "'; -fx-font-size: " + tamano + ";";
-            txtEditor.setStyle(fontStyle + " -fx-text-fill: #c9d1d9;");
-            txtLineas.setStyle(fontStyle + " -fx-text-fill: #484f58; -fx-alignment: TOP_RIGHT;");
+        String tamanoBruto = fontSizeSelector.getValue();
+    
+        if (fuente != null && tamanoBruto != null) {
+        String tamanoNum = tamanoBruto.replaceAll("[^0-9]", "");
+        String baseStyle = "-fx-font-family: '" + fuente + "'; -fx-font-size: " + tamanoNum + "px; -fx-control-inner-background: #0b0e14; -fx-background-color: #0b0e14; -fx-background-insets: 0; -fx-box-border: transparent;";
+        
+        txtEditor.setStyle(baseStyle + " -fx-text-fill: #c9d1d9; -fx-padding: 10 10 10 5;");
+        txtLineas.setStyle(baseStyle + " -fx-text-fill: #484f58; -fx-alignment: TOP_RIGHT; -fx-padding: 10 5 10 10;");
         }
     }
 

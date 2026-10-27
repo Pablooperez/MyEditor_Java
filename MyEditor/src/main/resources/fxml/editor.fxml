@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox style="-fx-background-color: #0d1117;" xmlns="http://javafx.com" xmlns:fx="http://javafx.com">
+<VBox style="-fx-background-color: #0b0e14;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml">
    <children>
-      <!-- Cabecera interna del editor -->
-      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #161b22; -fx-padding: 10 20 10 20; -fx-border-color: #30363d; -fx-border-width: 0 0 1 0;">
+      <!-- Cabecera superior -->
+      <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-color: #121520; -fx-padding: 8 20 8 20; -fx-border-color: #1e2333; -fx-border-width: 0 0 1 0;">
          <children>
-            <Button onAction="#mostrarInicio" style="-fx-background-color: transparent; -fx-text-fill: #8b949e;" text="⬅" />
-            <Label fx:id="lblTabName" style="-fx-text-fill: white; -fx-font-family: 'Monospaced'; -fx-padding: 0 0 0 15;" text="sin_titulo.txt" />
+            <Button onAction="#mostrarInicio" style="-fx-background-color: transparent; -fx-text-fill: #9ca3af; -fx-font-size: 14px; -fx-cursor: hand;" text="←" />
+            
+            <HBox alignment="CENTER" spacing="6.0" style="-fx-background-color: #1c2130; -fx-border-color: #2a3146; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 5 12;">
+               <children>
+                  <Label style="-fx-text-fill: #9ca3af; -fx-font-size: 12px;" text="📄" />
+                  <Label fx:id="lblTabName" style="-fx-text-fill: white; -fx-font-family: 'JetBrains Mono', 'Monospaced'; -fx-font-size: 13px;" text="sin_titulo.txt" />
+               </children>
+            </HBox>
+
             <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                <children>
-                  <Button onAction="#guardarArchivo" style="-fx-background-color: #21262d; -fx-border-color: #30363d; -fx-border-radius: 6; -fx-text-fill: white;" text="💾 Guardar" />
+                  <Button onAction="#guardarArchivo" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 6 14; -fx-cursor: hand;" text="💾 Guardar" />
                </children>
             </HBox>
          </children>
       </HBox>
       
-      <!-- Espacio de Escritura (Gutter + Caja de texto) -->
-      <HBox VBox.vgrow="ALWAYS">
+      <!-- Zona de edición sin artefactos de scroll ni desalineación -->
+      <HBox VBox.vgrow="ALWAYS" style="-fx-background-color: #0b0e14;">
          <children>
-            <TextArea fx:id="txtLineas" editable="false" focusTraversable="false" maxWidth="50.0" prefWidth="45.0" style="-fx-control-inner-background: #0d1117; -fx-text-fill: #484f58; -fx-font-family: 'JetBrains Mono'; -fx-font-size: 14px;" text="1" />
-            <TextArea fx:id="txtEditor" promptText="Comienza a escribir aquí..." style="-fx-control-inner-background: #0d1117; -fx-text-fill: #c9d1d9; -fx-font-family: 'JetBrains Mono'; -fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtLineas" editable="false" focusTraversable="false" maxWidth="55.0" prefWidth="50.0" style="-fx-control-inner-background: #0b0e14; -fx-background-color: #0b0e14; -fx-text-fill: #484f58; -fx-font-family: 'JetBrains Mono', 'Monospaced'; -fx-font-size: 14px; -fx-padding: 10 5 10 10; -fx-background-insets: 0; -fx-box-border: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;" text="1" />
+            <TextArea fx:id="txtEditor" promptText="Comienza a escribir aquí..." style="-fx-control-inner-background: #0b0e14; -fx-background-color: #0b0e14; -fx-text-fill: #c9d1d9; -fx-font-family: 'JetBrains Mono', 'Monospaced'; -fx-font-size: 14px; -fx-padding: 10 10 10 5; -fx-background-insets: 0; -fx-box-border: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </children>

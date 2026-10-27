@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="600.0" minWidth="900.0" prefHeight="720.0" prefWidth="1024.0" style="-fx-background-color: #0d1117;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="com.mycompany.myeditor.PrimaryController">
+<BorderPane minHeight="600.0" minWidth="900.0" prefHeight="720.0" prefWidth="1024.0" style="-fx-background-color: #0b0e14;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="com.mycompany.myeditor.PrimaryController">
    <left>
-      <VBox prefWidth="220.0" spacing="10.0" style="-fx-background-color: #161b22; -fx-border-color: #30363d; -fx-border-width: 0 1 0 0;">
+      <VBox prefWidth="220.0" spacing="8.0" style="-fx-background-color: #121520; -fx-border-color: #1e2333; -fx-border-width: 0 1 0 0;">
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="25.0" />
          </padding>
          <children>
             <Label style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 0 20 5;" text="&lt;/&gt; MyEditor" />
-            <Button fx:id="btnArchivos" maxWidth="1.7976931348623157E308" onAction="#mostrarInicio" style="-fx-background-color: #21262d; -fx-text-fill: white; -fx-alignment: BASELINE_LEFT; -fx-padding: 10; -fx-cursor: hand;" text="📁 Archivos" />
-            <Button fx:id="btnConfiguracion" maxWidth="1.7976931348623157E308" onAction="#mostrarConfiguracion" style="-fx-background-color: transparent; -fx-text-fill: #8b949e; -fx-alignment: BASELINE_LEFT; -fx-padding: 10; -fx-cursor: hand;" text="⚙ Configuración" />
+            <Button fx:id="btnArchivos" maxWidth="1.7976931348623157E308" onAction="#mostrarInicio" style="-fx-background-color: #1e2338; -fx-text-fill: #60a5fa; -fx-alignment: BASELINE_LEFT; -fx-padding: 10 14; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;" text="📁  Archivos" />
+            <Button fx:id="btnConfiguracion" maxWidth="1.7976931348623157E308" onAction="#mostrarConfiguracion" style="-fx-background-color: transparent; -fx-text-fill: #9ca3af; -fx-alignment: BASELINE_LEFT; -fx-padding: 10 14; -fx-background-radius: 6; -fx-cursor: hand;" text="⚙  Configuración" />
          </children>
       </VBox>
    </left>
@@ -25,12 +25,19 @@
       <StackPane fx:id="vistaCentral" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <HBox spacing="20.0" style="-fx-background-color: #161b22; -fx-padding: 6 15 6 15; -fx-border-color: #30363d; -fx-border-width: 1 0 0 0;">
+      <HBox spacing="20.0" style="-fx-background-color: #121520; -fx-padding: 6 15 6 15; -fx-border-color: #1e2333; -fx-border-width: 1 0 0 0;">
          <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label fx:id="lblStatusName" style="-fx-text-fill: white; -fx-font-size: 11px; -fx-font-weight: bold;" text="sin_titulo.txt" />
+                  <Label style="-fx-text-fill: #4b5563; -fx-font-size: 11px;" text="|" />
+                  <Label fx:id="lblStatusState" style="-fx-text-fill: #9ca3af; -fx-font-size: 11px;" text="Modificado" />
+               </children>
+            </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="15.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="lblCursor" style="-fx-text-fill: #8b949e; -fx-font-size: 11px;" text="Línea 1, Columna 1" />
-                  <Label style="-fx-text-fill: #8b949e; -fx-font-size: 11px;" text="|  UTF-8" />
+                  <Label fx:id="lblCursor" style="-fx-text-fill: #9ca3af; -fx-font-size: 11px;" text="Línea 1, Columna 1" />
+                  <Label style="-fx-text-fill: #9ca3af; -fx-font-size: 11px;" text="|  UTF-8" />
                </children>
             </HBox>
          </children>

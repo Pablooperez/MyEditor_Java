@@ -13,7 +13,7 @@
    </padding>
    <children>
       <!-- Bloque centralizado con el mismo ancho de la vista de inicio -->
-      <VBox alignment="CENTER_LEFT" maxWidth="500.0" spacing="25.0">
+      <VBox alignment="CENTER" maxWidth="500.0" spacing="25.0">
          <children>
             <Label style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;" text="Configuración del Editor" />
             
@@ -49,6 +49,18 @@
                         <Label style="-fx-text-fill: #3b82f6; -fx-font-size: 13px; -fx-font-weight: bold;" text="Opciones de visualización" />
                         <CheckBox fx:id="chkLineas" selected="true" style="-fx-text-fill: white; -fx-font-size: 13px; -fx-cursor: hand;" text="Números de línea" />
                         <CheckBox fx:id="chkAjusteLinea" selected="true" style="-fx-text-fill: white; -fx-font-size: 13px; -fx-cursor: hand;" text="Ajuste de línea (Word Wrap)" />
+                     </children>
+                  </VBox>
+                  <!-- Sección 3: Cifrado -->
+                  <VBox spacing="12.0">
+                     <children>
+                        <Label style="-fx-text-fill: #3b82f6; -fx-font-size: 13px; -fx-font-weight: bold;" text="Seguridad y Cifrado" />
+                        <VBox spacing="6.0">
+                           <children>
+                              <Label style="-fx-text-fill: #8b949e; -fx-font-size: 12px;" text="Algoritmo de cifrado predeterminado" />
+                              <ComboBox fx:id="cbAlgoritmoCifrado" maxWidth="1.7976931348623157E308" style="-fx-background-color: #121520; -fx-border-color: #2a3146; -fx-border-radius: 6; -fx-background-radius: 6; -fx-text-fill: white; -fx-padding: 2;" />
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
                </children>

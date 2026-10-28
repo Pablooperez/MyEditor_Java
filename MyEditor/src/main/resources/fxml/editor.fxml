@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox style="-fx-background-color: #0b0e14;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml">
+<VBox style="-fx-background-color: #171a27;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml">
    <children>
-      <!-- Cabecera superior -->
+      <!-- Cabecera superior del editor -->
       <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-color: #121520; -fx-padding: 8 20 8 20; -fx-border-color: #1e2333; -fx-border-width: 0 0 1 0;">
          <children>
             <Button onAction="#mostrarInicio" style="-fx-background-color: transparent; -fx-text-fill: #9ca3af; -fx-font-size: 14px; -fx-cursor: hand;" text="←" />
@@ -20,19 +21,33 @@
                </children>
             </HBox>
 
-            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+            <!-- Selector de fuente y tamaño dentro del editor -->
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
                <children>
-                  <Button onAction="#guardarArchivo" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 6 14; -fx-cursor: hand;" text="💾 Guardar" />
+                  <ComboBox fx:id="cbFuenteEditor" onAction="#aplicarTipografiaEditor" prefWidth="135.0" style="-fx-background-color: #1c2130; -fx-border-color: #2a3146; -fx-border-radius: 6; -fx-background-radius: 6; -fx-text-fill: white;" />
+                  <ComboBox fx:id="cbTamanoEditor" onAction="#aplicarTipografiaEditor" prefWidth="85.0" style="-fx-background-color: #1c2130; -fx-border-color: #2a3146; -fx-border-radius: 6; -fx-background-radius: 6; -fx-text-fill: white;" />
+               </children>
+            </HBox>
+
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+               
+            </HBox>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button onAction="#cifrarTexto" style="-fx-background-color: #1e293b; -fx-border-color: #334155; -fx-border-radius: 6; -fx-background-radius: 6; -fx-text-fill: #fbbf24; -fx-font-weight: bold; -fx-padding: 6 12; -fx-cursor: hand;" text="🔒 Cifrar" />
+                  <Button onAction="#descifrarTexto" style="-fx-background-color: #1e293b; -fx-border-color: #334155; -fx-border-radius: 6; -fx-background-radius: 6; -fx-text-fill: #34d399; -fx-font-weight: bold; -fx-padding: 6 12; -fx-cursor: hand;" text="🔓 Descifrar" />
+                  <Button onAction="#guardarArchivo" style="-fx-background-color: #1d3557; -fx-border-color: #2563eb; -fx-border-radius: 6; -fx-background-radius: 6; -fx-text-fill: #60a5fa; -fx-font-weight: bold; -fx-padding: 6 14; -fx-cursor: hand;" text="💾 Guardar" />
                </children>
             </HBox>
          </children>
       </HBox>
       
-      <!-- Zona de edición sin artefactos de scroll ni desalineación -->
-      <HBox VBox.vgrow="ALWAYS" style="-fx-background-color: #0b0e14;">
+      <!-- Zona de edición -->
+      <HBox VBox.vgrow="ALWAYS" style="-fx-background-color: #171a27;">
          <children>
-            <TextArea fx:id="txtLineas" editable="false" focusTraversable="false" maxWidth="55.0" prefWidth="50.0" style="-fx-control-inner-background: #0b0e14; -fx-background-color: #0b0e14; -fx-text-fill: #484f58; -fx-font-family: 'JetBrains Mono', 'Monospaced'; -fx-font-size: 14px; -fx-padding: 10 5 10 10; -fx-background-insets: 0; -fx-box-border: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;" text="1" />
-            <TextArea fx:id="txtEditor" promptText="Comienza a escribir aquí..." style="-fx-control-inner-background: #0b0e14; -fx-background-color: #0b0e14; -fx-text-fill: #c9d1d9; -fx-font-family: 'JetBrains Mono', 'Monospaced'; -fx-font-size: 14px; -fx-padding: 10 10 10 5; -fx-background-insets: 0; -fx-box-border: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;" HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtLineas" editable="false" focusTraversable="false" maxWidth="55.0" prefWidth="50.0" style="-fx-control-inner-background: #121520; -fx-background-color: #121520; -fx-text-fill: #484f58; -fx-font-family: 'JetBrains Mono', 'Monospaced'; -fx-font-size: 14px;" text="1" />
+            <TextArea fx:id="txtEditor" promptText="Comienza a escribir aquí..." style="-fx-control-inner-background: #171a27; -fx-background-color: #171a27; -fx-text-fill: #c9d1d9; -fx-font-family: 'JetBrains Mono', 'Monospaced'; -fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </children>

@@ -1,3 +1,4 @@
+com\mycompany\myeditor\GestorCifrado.class
 module-info.class
 com\mycompany\myeditor\PrimaryController.class
 com\mycompany\myeditor\GestorArchivos.class

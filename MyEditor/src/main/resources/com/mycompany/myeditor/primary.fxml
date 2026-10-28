@@ -10,7 +10,7 @@
 
 <BorderPane minHeight="600.0" minWidth="900.0" prefHeight="720.0" prefWidth="1024.0" style="-fx-background-color: #0b0e14;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="com.mycompany.myeditor.PrimaryController">
    <left>
-      <VBox prefWidth="220.0" spacing="8.0" style="-fx-background-color: #121520; -fx-border-color: #1e2333; -fx-border-width: 0 1 0 0;">
+      <VBox fx:id="panelIzquierdo" prefWidth="220.0" spacing="8.0" style="-fx-background-color: #121520; -fx-border-color: #1e2333; -fx-border-width: 0 1 0 0;">
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="25.0" />
          </padding>
@@ -25,7 +25,8 @@
       <StackPane fx:id="vistaCentral" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <HBox spacing="20.0" style="-fx-background-color: #121520; -fx-padding: 6 15 6 15; -fx-border-color: #1e2333; -fx-border-width: 1 0 0 0;">
+      <!-- Barra de estado oculta por defecto mediante visible y managed -->
+      <HBox fx:id="barraEstado" managed="false" visible="false" spacing="20.0" style="-fx-background-color: #121520; -fx-padding: 6 15 6 15; -fx-border-color: #1e2333; -fx-border-width: 1 0 0 0;">
          <children>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
